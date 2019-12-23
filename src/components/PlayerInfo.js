@@ -1,9 +1,9 @@
 import React from "react";
 
-function PlayerInfo() {
+function PlayerInfo({ player1, player2 }) {
   return (
     <div>
-      <span>Player 1: 0 pts</span> | <span>Player 2: 0 pts</span>
+      <span>{player1}: 0 pts</span> | <span>{player2}: 0 pts</span>
     </div>
   );
 }

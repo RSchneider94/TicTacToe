@@ -1,4 +1,7 @@
 import React from "react";
+
+import { useSelector } from "react-redux";
+
 import styled from "styled-components";
 
 import PlayerInfo from "./PlayerInfo";
@@ -16,9 +19,10 @@ const StyledGameInfoBar = styled.div`
 `;
 
 function GameInfoBar() {
+  const { player1, player2 } = useSelector(state => state.controlPlayers);
   return (
     <StyledGameInfoBar>
-      <PlayerInfo></PlayerInfo>
+      <PlayerInfo player1={player1} player2={player2}></PlayerInfo>
     </StyledGameInfoBar>
   );
 }

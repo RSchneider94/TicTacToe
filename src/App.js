@@ -1,25 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
-import FormStartGame from "./components/FormStartGame";
-import GameInfoBar from "./components/GameInfoBar";
-import GameBoard from "./components/GameBoard";
+import { Provider } from "react-redux";
+import store from "./store";
+
+import GameRoot from "./containers/GameRoot";
 
 function App() {
-  const [gameStarted, setGameStarted] = useState(false);
-
-  if (gameStarted) {
-    return (
-      <div>
-        <GameInfoBar></GameInfoBar>
-        <GameBoard></GameBoard>
-      </div>
-    );
-  }
   return (
-    <div>
-      <FormStartGame></FormStartGame>
-    </div>
+    <Provider store={store}>
+      <GameRoot></GameRoot>
+    </Provider>
   );
 }
 

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import GameInfoBar from "./GameInfoBar";
+
 const StyledGameBoard = styled.div`
   display: flex;
   margin: 80px auto 0;
@@ -12,7 +14,12 @@ const StyledGameBoard = styled.div`
 `;
 
 function GameBoard() {
-  return <StyledGameBoard></StyledGameBoard>;
+  return (
+    <div>
+      <GameInfoBar></GameInfoBar>
+      <StyledGameBoard></StyledGameBoard>
+    </div>
+  );
 }
 
 export default GameBoard;

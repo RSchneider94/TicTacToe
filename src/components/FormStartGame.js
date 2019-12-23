@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledFormStartGame = styled.div`
@@ -49,15 +49,7 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
-const handleSubmit = e => {
-  e.preventDefault();
-  console.log("form submitted");
-};
-
-function FormStartGame() {
-  const [player1, setPlayer1] = useState("");
-  const [player2, setPlayer2] = useState("");
-
+function FormStartGame({ player1, player2, handleChange, handleSubmit }) {
   return (
     <StyledFormStartGame>
       <StyledWelcomeText>
@@ -80,7 +72,7 @@ function FormStartGame() {
             id="player1"
             placeholder="Enter the name of player 1"
             value={player1}
-            onChange={e => setPlayer1(e.target.value)}
+            onChange={handleChange}
           ></StyledInputText>
         </StyledFormGroup>
         <StyledFormGroup>
@@ -93,7 +85,7 @@ function FormStartGame() {
             id="player2"
             placeholder="Enter the name of player 2"
             value={player2}
-            onChange={e => setPlayer2(e.target.value)}
+            onChange={handleChange}
           ></StyledInputText>
         </StyledFormGroup>
         <StyledFormGroup>
