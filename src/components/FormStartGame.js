@@ -30,6 +30,7 @@ const StyledInputText = styled.input`
   padding: 6px;
   border: 1px solid #5d3455;
   border-radius: 2px;
+  font-size: 14px;
 
   &:focus {
     border: 2px solid #5d3455;
@@ -43,6 +44,7 @@ const StyledSubmitButton = styled.button`
   color: #fff;
   padding: 10px;
   border-radius: 2px;
+  font-size: 14px;
 
   &:hover {
     cursor: pointer;
