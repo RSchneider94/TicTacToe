@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import GameInfoBar from "./GameInfoBar";
+import GameInfoBar from './GameInfoBar';
 
 const StyledGameBoard = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const StyledGameBoard = styled.div`
   height: 400px;
   width: 400px;
   background-color: #fff;
-  border-radius: 2%;
+  border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 

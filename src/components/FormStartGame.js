@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledFormStartGame = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const StyledFormStartGame = styled.div`
   padding-bottom: 40px;
   width: 80%;
   background-color: #fff;
-  border-radius: 2%;
+  border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
@@ -53,17 +53,17 @@ function FormStartGame({ player1, player2, handleChange, handleSubmit }) {
   return (
     <StyledFormStartGame>
       <StyledWelcomeText>
-        Welcome! Let's start?{" "}
+        Welcome! Let's start?{' '}
         <span role="img" aria-label="smile">
           😀
         </span>
       </StyledWelcomeText>
       <form
         onSubmit={handleSubmit}
-        style={{ width: "100%", textAlign: "center" }}
+        style={{ width: '100%', textAlign: 'center' }}
       >
         <StyledFormGroup>
-          <label style={{ display: "block", margin: "10px 0" }}>
+          <label style={{ display: 'block', margin: '10px 0' }}>
             Player 1:
           </label>
           <StyledInputText
@@ -76,7 +76,7 @@ function FormStartGame({ player1, player2, handleChange, handleSubmit }) {
           ></StyledInputText>
         </StyledFormGroup>
         <StyledFormGroup>
-          <label style={{ display: "block", margin: "10px 0" }}>
+          <label style={{ display: 'block', margin: '10px 0' }}>
             Player 2:
           </label>
           <StyledInputText
