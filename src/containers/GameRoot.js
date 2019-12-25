@@ -1,13 +1,13 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import FormStartGame from "../components/FormStartGame";
-import GameBoard from "../components/GameBoard";
+import FormStartGame from '../components/FormStartGame';
+import GameBoard from '../components/GameBoard';
 
-import { setPlayerName, startGame } from "../redux/actions";
+import { setPlayerName, startGame } from '../redux/actions';
 
 function GameRoot() {
-  const { gameStarted } = useSelector(state => state.controlGame);
+  const { gameStarted, tiles } = useSelector(state => state.controlGame);
   const { player1, player2 } = useSelector(state => state.controlPlayers);
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ function GameRoot() {
       ></FormStartGame>
     );
   }
-  return <GameBoard></GameBoard>;
+  return <GameBoard tiles={tiles}></GameBoard>;
 }
 
 export default GameRoot;

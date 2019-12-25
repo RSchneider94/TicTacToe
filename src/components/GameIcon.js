@@ -8,10 +8,11 @@ const StyledGameIcon = styled.span`
   font-size: 3.5em;
 `;
 
-function GameIcon() {
+function GameIcon({ tile }) {
   return (
     <StyledGameIcon role="img" aria-label="x">
-      {true ? '❌' : '⭕️'}
+      {tile === 1 && '❌'}
+      {tile === 2 && '⭕️'}
     </StyledGameIcon>
   );
 }

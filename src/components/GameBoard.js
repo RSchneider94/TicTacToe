@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 import GameInfoBar from './GameInfoBar';
 import GameTile from './GameTile';
+import GameIcon from './GameIcon';
+
+import { useDispatch } from 'react-redux';
+import { makeMove } from '../redux/actions';
 
 const StyledGameBoard = styled.div`
   display: flex;
@@ -15,12 +19,28 @@ const StyledGameBoard = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
-let gameTiles = [];
-for (let index = 0; index < 9; index++) {
-  gameTiles.push(<GameTile key={index}></GameTile>);
-}
+function GameBoard({ tiles }) {
+  const dispatch = useDispatch();
+  let gameTiles = [];
 
-function GameBoard() {
+  const handleTileClick = (x, y) => () => {
+    dispatch(makeMove(x, y));
+  };
+
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameTiles.push(
+        <GameTile
+          key={`tile_${i}_${j}`}
+          handleClick={tiles[i][j] > 0 ? () => {} : handleTileClick(i, j)}
+          positionX={i}
+          positionY={j}
+        >
+          <GameIcon tile={tiles[i][j]}></GameIcon>
+        </GameTile>
+      );
+    }
+  }
   return (
     <div>
       <GameInfoBar></GameInfoBar>

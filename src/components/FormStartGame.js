@@ -55,7 +55,7 @@ function FormStartGame({ player1, player2, handleChange, handleSubmit }) {
   return (
     <StyledFormStartGame>
       <StyledWelcomeText>
-        Welcome! Let's start?{' '}
+        Welcome! Let's start?
         <span role="img" aria-label="smile">
           😀
         </span>

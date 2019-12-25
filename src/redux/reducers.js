@@ -1,17 +1,37 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 const initialStatePlayers = {
-  player1: "",
+  player1: '',
   pointsPlayer1: 0,
-  player2: "",
+  player2: '',
   pointsPlayer2: 0
 };
 
-function controlGame(state = { gameStarted: false }, action) {
+const initialStateGame = {
+  gameStarted: false,
+  tiles: [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+  ],
+  currentPlayer: 1
+};
+
+function controlGame(state = initialStateGame, action) {
   switch (action.type) {
-    case "START_GAME":
+    case 'START_GAME':
       return {
+        ...state,
         gameStarted: true
+      };
+    case 'MAKE_MOVE':
+      const newTiles = [...state.tiles];
+      newTiles[action.tileXPosition][action.tileYPosition] =
+        state.currentPlayer;
+      return {
+        ...state,
+        currentPlayer: state.currentPlayer === 1 ? 2 : 1,
+        tiles: newTiles
       };
     default:
       return state;
@@ -20,7 +40,7 @@ function controlGame(state = { gameStarted: false }, action) {
 
 function controlPlayers(state = initialStatePlayers, action) {
   switch (action.type) {
-    case "SET_PLAYER_NAME":
+    case 'SET_PLAYER_NAME':
       return { ...state, [action.whichPlayer]: action.name };
     default:
       return state;
