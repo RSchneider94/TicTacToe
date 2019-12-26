@@ -33,8 +33,6 @@ function GameBoard({ tiles }) {
         <GameTile
           key={`tile_${i}_${j}`}
           handleClick={tiles[i][j] > 0 ? () => {} : handleTileClick(i, j)}
-          positionX={i}
-          positionY={j}
         >
           <GameIcon tile={tiles[i][j]}></GameIcon>
         </GameTile>
