@@ -14,7 +14,9 @@ const initialStateGame = {
     [0, 0, 0],
     [0, 0, 0]
   ],
-  currentPlayer: 1
+  currentPlayer: 1,
+  moves: 0,
+  roundFinished: false
 };
 
 function controlGame(state = initialStateGame, action) {
@@ -25,13 +27,21 @@ function controlGame(state = initialStateGame, action) {
         gameStarted: true
       };
     case 'MAKE_MOVE':
+      let newRoundFinished = state.roundFinished;
+      let newMoves = ++state.moves;
+      if (newMoves === 9) {
+        newRoundFinished = true;
+      }
       const newTiles = [...state.tiles];
       newTiles[action.tileXPosition][action.tileYPosition] =
         state.currentPlayer;
+
       return {
         ...state,
         currentPlayer: state.currentPlayer === 1 ? 2 : 1,
-        tiles: newTiles
+        tiles: newTiles,
+        moves: newMoves,
+        roundFinished: newRoundFinished
       };
     default:
       return state;

@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import FormStartGame from '../components/FormStartGame';
 import GameBoard from '../components/GameBoard';
+import GameFinished from '../components/GameFinished';
 
 import { setPlayerName, startGame } from '../redux/actions';
 
 function GameRoot() {
-  const { gameStarted, tiles } = useSelector(state => state.controlGame);
+  const { gameStarted, tiles, winner, roundFinished } = useSelector(
+    state => state.controlGame
+  );
   const { player1, player2 } = useSelector(state => state.controlPlayers);
   const dispatch = useDispatch();
 
@@ -32,7 +35,10 @@ function GameRoot() {
       ></FormStartGame>
     );
   }
-  return <GameBoard tiles={tiles}></GameBoard>;
+  if (!roundFinished) {
+    return <GameBoard tiles={tiles}></GameBoard>;
+  }
+  return <GameFinished></GameFinished>;
 }
 
 export default GameRoot;
